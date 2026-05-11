@@ -229,16 +229,25 @@ const Index = () => {
         </div>
       </section>
 
+
       {/* WAITLIST */}
       <section id="waitlist" className="bg-blue-600 text-white">
         <div className="mx-auto max-w-5xl px-6 py-24">
           <div className="grid md:grid-cols-2 gap-10 items-start">
             <div>
-              <div className="text-xs uppercase tracking-[0.2em] text-blue-200">— Join the waitlist</div>
+              <div className="text-xs uppercase tracking-[0.2em] text-blue-200">
+                — Join the waitlist
+              </div>
+
               <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
-                Be first<br />
-                <span className="italic text-blue-200">when we launch.</span>
+                Be first
+                <br />
+
+                <span className="italic text-blue-200">
+                  when we launch.
+                </span>
               </h2>
+
               <p className="mt-6 text-blue-100 text-sm leading-relaxed max-w-md">
                 Pick the side you're on. We'll send one email when you're in —
                 no spam, no pressure.
@@ -252,6 +261,7 @@ const Index = () => {
                   >
                     I'm looking for a job
                   </button>
+
                   <button
                     onClick={() => setUserType("company")}
                     className="rounded-full border border-white/30 px-6 py-3 text-sm font-medium text-white hover:border-white transition"
@@ -267,65 +277,109 @@ const Index = () => {
                 <div className="rounded-2xl bg-[#f5f1ea] text-slate-900 p-6 sm:p-8">
                   {submitted ? (
                     <div className="py-6 text-center">
-                      <div className="mx-auto h-12 w-12 rounded-full bg-blue-600 text-white grid place-items-center text-xl">✓</div>
-                      <h3 className="mt-5 font-serif text-2xl">You're on the list.</h3>
+                      <div className="mx-auto h-12 w-12 rounded-full bg-blue-600 text-white grid place-items-center text-xl">
+                        ✓
+                      </div>
+
+                      <h3 className="mt-5 font-serif text-2xl">
+                        You're on the list.
+                      </h3>
+
                       <p className="mt-2 text-sm text-slate-600">
                         Thanks. We'll reach out the moment we open access.
                       </p>
+
                       <button
-                        onClick={() => { setUserType(null); setSubmitted(false); setCvName(""); }}
+                        onClick={() => {
+                          setUserType(null);
+                          setSubmitted(false);
+                        }}
                         className="mt-6 text-xs uppercase tracking-[0.2em] text-blue-600 hover:text-blue-700"
                       >
                         ← back
                       </button>
                     </div>
                   ) : userType === "candidate" ? (
-                    <form action={CANDIDATE_FORM_URL} method="POST" encType="multipart/form-data" onSubmit={handleSubmit} className="space-y-5">
+                    <form
+                      action={CANDIDATE_FORM_URL}
+                      method="POST"
+                      onSubmit={handleSubmit}
+                      className="space-y-5"
+                    >
                       <div className="flex items-center justify-between">
-                        <h3 className="font-serif text-2xl">Join as candidate</h3>
-                        <button type="button" onClick={() => { setUserType("company"); setCvName(""); }} className="text-xs text-blue-600 underline underline-offset-2 hover:text-blue-700">
+                        <h3 className="font-serif text-2xl">
+                          Join as candidate
+                        </h3>
+
+                        <button
+                          type="button"
+                          onClick={() => setUserType("company")}
+                          className="text-xs text-blue-600 underline underline-offset-2 hover:text-blue-700"
+                        >
                           switch to hiring
                         </button>
                       </div>
-                      <Field label="Email" name="email" type="email" required placeholder="you@email.com" />
-                      <Field label="Role you're after" name="role" placeholder="e.g. Frontend intern" optional />
 
-                      <div>
-                        <span className="block text-xs uppercase tracking-[0.15em] text-slate-500 mb-2">
-                          Upload your CV
-                        </span>
-                        <label className="flex items-center justify-between gap-3 rounded-xl border border-dashed border-blue-600/40 bg-white px-4 py-3 cursor-pointer hover:border-blue-600 transition">
-                          <span className="text-sm text-slate-600 truncate">
-                            {cvName || "Choose a PDF or DOCX file"}
-                          </span>
-                          <span className="shrink-0 inline-flex items-center gap-1 rounded-full bg-blue-600 px-3 py-1 text-xs font-medium text-white">
-                            Browse
-                          </span>
-                          <input
-                            type="file"
-                            name="cv"
-                            required
-                            accept=".pdf,.doc,.docx"
-                            className="hidden"
-                            onChange={(e) => setCvName(e.target.files?.[0]?.name ?? "")}
-                          />
-                        </label>
-                        <p className="mt-1.5 text-[11px] text-slate-400">PDF or DOCX. Max ~5MB.</p>
-                      </div>
+                      <Field
+                        label="Email"
+                        name="email"
+                        type="email"
+                        required
+                        placeholder="you@email.com"
+                      />
+
+                      <Field
+                        label="Role you're after"
+                        name="role"
+                        placeholder="e.g. Frontend intern"
+                        optional
+                      />
 
                       <SubmitBtn>Join the waitlist</SubmitBtn>
                     </form>
                   ) : (
-                    <form action={COMPANY_FORM_URL} method="POST" onSubmit={handleSubmit} className="space-y-5">
+                    <form
+                      action={COMPANY_FORM_URL}
+                      method="POST"
+                      onSubmit={handleSubmit}
+                      className="space-y-5"
+                    >
                       <div className="flex items-center justify-between">
-                        <h3 className="font-serif text-2xl">Hire on Internity</h3>
-                        <button type="button" onClick={() => setUserType("candidate")} className="text-xs text-blue-600 underline underline-offset-2 hover:text-blue-700">
+                        <h3 className="font-serif text-2xl">
+                          Hire on Internity
+                        </h3>
+
+                        <button
+                          type="button"
+                          onClick={() => setUserType("candidate")}
+                          className="text-xs text-blue-600 underline underline-offset-2 hover:text-blue-700"
+                        >
                           switch to candidate
                         </button>
                       </div>
-                      <Field label="Company" name="company" required placeholder="Acme Inc." />
-                      <Field label="Work email" name="email" type="email" required placeholder="hiring@company.com" />
-                      <Field label="Role hiring for" name="role" required placeholder="e.g. Marketing intern" />
+
+                      <Field
+                        label="Company"
+                        name="company"
+                        required
+                        placeholder="Acme Inc."
+                      />
+
+                      <Field
+                        label="Work email"
+                        name="email"
+                        type="email"
+                        required
+                        placeholder="hiring@company.com"
+                      />
+
+                      <Field
+                        label="Role hiring for"
+                        name="role"
+                        required
+                        placeholder="e.g. Marketing intern"
+                      />
+
                       <SubmitBtn>Request early access</SubmitBtn>
                     </form>
                   )}
@@ -335,6 +389,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
 
       {/* FAQ */}
       <section id="faq" className="border-b border-slate-900/10">
