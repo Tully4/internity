@@ -32,10 +32,10 @@ const Index = () => {
       <header className="border-b border-slate-900/10">
         <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2">
-            <span className="h-6 w-6 rounded-full bg-blue-600 grid place-items-center">
+            {/* <span className="h-6 w-6 rounded-full bg-blue-600 grid place-items-center">
               <span className="h-2 w-2 rounded-full bg-[#f5f1ea]" />
-            </span>
-            <span className="text-base font-semibold tracking-tight">internity</span>
+            </span> */}
+            <span className="text-base font-semibold tracking-tight">Internity</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-slate-600">
             <a href="#how" className="hover:text-blue-600 transition">How it works</a>
@@ -364,18 +364,16 @@ const Index = () => {
       <footer className="bg-[#f5f1ea]">
         <div className="mx-auto max-w-7xl px-6 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex items-center gap-2">
-            <span className="h-6 w-6 rounded-full bg-blue-600 grid place-items-center">
-              <span className="h-2 w-2 rounded-full bg-[#f5f1ea]" />
-            </span>
-            <span className="text-sm font-semibold">internity</span>
+          
+            <span className="text-sm font-semibold">Internity</span>
           </div>
           <div className="text-xs text-slate-500">
             © {new Date().getFullYear()} Internity. Made for the next generation.
           </div>
           <div className="flex items-center gap-5 text-xs text-slate-500">
-            <a href="#" className="hover:text-blue-600">Twitter</a>
-            <a href="#" className="hover:text-blue-600">Instagram</a>
-            <a href="#" className="hover:text-blue-600">Contact</a>
+            <a href="https://x.com/internityhq" className="hover:text-blue-600">Twitter</a>
+            <a href="https://www.instagram.com/internityhq/" className="hover:text-blue-600">Instagram</a>
+            <a href="mailto:internityhq@gmail.com" className="hover:text-blue-600">Contact</a>
           </div>
         </div>
       </footer>
