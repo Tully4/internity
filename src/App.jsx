@@ -332,7 +332,7 @@ const Index = () => {
                         label="Role you're after"
                         name="role"
                         placeholder="e.g. Frontend intern"
-                        optional
+                        required
                       />
 
                       <SubmitBtn>Join the waitlist</SubmitBtn>
